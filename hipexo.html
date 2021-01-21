@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/mo.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script src="js/jquery.color.js"></script>
+		<script type="text/javascript" src="js/nav.js"></script>
+	</head>
+	<body>
+		<div id="head">
+			<div id="nav">
+				<div class="nav_bu" id="ind_bu"><a href="index.html">index</a></div>
+				<div class="nav_bu" id="con_bu">contact</div>
+				<div class="nav_bu" id="proj_bu">project ∨</div>
+			</div>
+			<div id="title_y">2017年<span>(本科毕业设计)</span></div>
+			<div id="title">可穿戴式下肢外骨骼研制</div>
+			<img id="himg" src="img/图片7.png" />
+		</div>
+		<div id="container">
+			<div id="main">
+				<div id="mlist1" class="ml">
+					<div class="mlimg"><img src="img/exo_1.PNG" /> </div>
+					<div class="text"><div class="txt_title">被动式单元</div>  
+					<div class="txt_main">本外骨骼采用平面涡卷弹簧作为弹性储能元件，在后摆过程中涡卷弹簧压缩储能，在前
+驱过程中释放能量，提供助力。结构上通常采用两种方案，即：单个弹簧或两个涡卷弹簧并
+联。图2.9 为单一弹簧被动模式结构图，弹簧一端与中心轴相连，另一端与弹簧座相连，弹簧
+座底端有一圈圆孔，通过圆孔与基础模块的碳纤维管相连。安装过程中通过调节弹簧的角度
+来设置不同大小的预紧力。图2.10 为两弹簧并联结构图，第二个弹簧座与第一个弹簧座结构
+相同，通过底部的圆孔与第一个弹簧盖的凸圆卡在一起，在安装过程中也可调节角度以设置
+不同预紧力。通过两弹簧不同的弹性系数及不同的预紧力组合成不同的助力曲线。第二个弹……</div> 
+					</div>
+				</div>
+				<div id="mlist2" class="ml2">
+					<div class="mlimg"><img src="img/exo_2.PNG" /> </div>
+					<div class="text">
+						<div class="txt_title">主动式单元</div>  
+						<div class="txt_main">根据髋关节力矩及功率的测量数据，结合外骨骼需要轻便、长续航的特点，以及在髋关
+节轴向长度尽量短的特点，本文拟选用为无人机设计的T-motor U8 100KV 无刷直流电机。该
+电机的轴向宽度仅为26.5mm，质量240g。减速器拟采用绿的LHD-20-100-C-I 谐波减速器，
+传动比1:100，轴向宽度19mm，质量550g。</div>
+					</div>
+				</div>
+				<div id="mlist3" class="ml">
+					<div class="mlimg"><img src="img/exo_3.PNG" /> </div>
+					<div class="text">
+						<div class="txt_title">控制电路</div>  
+						<div class="txt_main">。使用树莓派作为控制器，由5V2A 的充电宝供
+电。显示器通过USB 及HDMI 与树莓派相连。左右腿各绑一个MPU6050 模块，通过I2C
+总线与树莓派相连,其中一个MPU6050 模块需将ADD 接高电平，以改变模块的地址。电机
+的正反转及调速电路同上节所示。在电路中串联30A 量程电流传感器测电流。输出的模拟
+信号通过PCF8591A/D 转换模块转换为数字信号，通过I2C 总线传递给树莓派。</div>
+					</div>
+				</div>
+				<div id="mlist4" class="ml2">
+					<div class="mlimg"><img src="img/exo_4.PNG" /> </div>
+					<div class="text">
+						<div class="txt_title">控制算法</div>  
+						<div class="txt_main">本文设计的外骨骼为单侧外骨骼，假设患者左腿可正常行走，右腿丧失正常功能。因此
+可以使用电机驱动右腿模仿左腿前半个周期的运动来辅助行走。这样的控制方法相对易于实
+现，只需要两个imu 传感器记录姿态，并且可以使助力腿的步态更加符合患者的日常步态。</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div id="bottom">未完待续……</div>
+	</body>
+</html>

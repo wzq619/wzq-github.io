@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{margin: 0px;padding: 0px;}
+			body{background-color: black}
+			#headback{height: 1000px;width: 100%;z-index: -10;background: black;float: left;}
+			#videocover{height: 1000px;width: 100%;z-index: 1;position: absolute;top:0px;left:0px;float: left;background-color: rgba(200,200,200,0);}
+			#container{width:1545px;margin: 0px auto;position: relative;}
+			#head{overflow: hidden;height: 1000px;left: 0px;top:0px;position:absolute;width:1545px}
+			#headvideo{width: 1545px;height: 1000px;object-fit: fill;margin: auto;position: absolute;float:left;left: 0px;top:0px;}
+			
+			#welcome{font-size: 70px;z-index: 3;opacity: 1;color: white;width: 1300px;position: absolute;text-align: center;top: 300px;left: 110px;font-weight: bold;height: 150px;cursor: default;}
+			
+			#view{padding-left: 30px;border: solid 2px white;z-index: 2;border-radius: 3px;width: 280px;height: 48px;line-height: 40px;font-size: 30px;top: 600px;left:600px;
+					position: absolute;text-align: left;font-weight: bold;;color: white;background-color: rgb(127,255,212,0);font-family: "HGYT2_CNKI";}	
+			#view.hover{cursor: pointer;}
+			#view>#arrows{float: left;left: 250px;top: 0px;position: absolute;font-size: 40px;}
+
+			#main{width: 1545px;height: 900px;padding: 0px;position: absolute;top: 1000px;}
+			.mlist{width:511px;height: 800px;float: left;margin: 0px;border: rgb(40,40,40) 2px solid;background: rgb(0,0,0);overflow: hidden;position: relative;}
+			.mlhead{z-index: 4;color: white;font-size: 40px;font-weight: bold;text-shadow: h-shadow v-shadow blur color;height: 800px;float: left;width: 496px;top:20px;position: absolute;}
+			#mlexo{background-image: url(img/图片7.png);}
+			#mlsfd{background-image: url(img/SFD.PNG);background-repeat: no-repeat;background-position: center;}
+			#mlpcan{background-image: url(img/PCAN.PNG);background-repeat: no-repeat;background-position: center;}
+			#mlupperexo{background-image: url(img/UpperExo.PNG);background-repeat: no-repeat;background-position: center;background-size: auto;}
+			#imglander1{width: 500px;margin: 40px 5px 0px 5px;border: 0px;padding: 0px;}
+			#imglander2{width: 500px;margin: 0px 5px 0px 5px;border: 0px;padding: 0px;}
+			/*#mllandercover{position: absolute;top:40px;left:5px;width:500px;height: 760px;background: rgba(255,255,255,0.2);z-index: 2;}*/
+			.mlhead{
+			    font-family: 'Audiowide';
+			    text-align: center;
+			    color: #00a67c;
+			    font-size: 30px;
+			    -webkit-transition: all 1.5s ease;
+			}
+			.mlhead:hover {
+			    color: #fff;
+			    -webkit-animation: Glow 1.5s ease infinite alternate;
+			    cursor: pointer;
+			}
+
+			@-webkit-keyframes Glow {
+			    from {
+			        text-shadow: 0 0 10px #fff,
+			                     0 0 20px #fff,
+			                     0 0 30px #fff,
+			                     0 0 40px #00a67c,
+			                     0 0 70px #00a67c,
+			                     0 0 80px #00a67c,
+			                     0 0 100px #00a67c,
+			                     0 0 150px #00a67c;
+			    }
+			    to {
+			        text-shadow: 0 0 5px #fff,
+			                     0 0 10px #fff,
+			                     0 0 15px #fff,
+			                     0 0 20px #00a67c,
+			                     0 0 35px #00a67c,
+			                     0 0 40px #00a67c,
+			                     0 0 50px #00a67c,
+			                     0 0 75px #00a67c;
+			    }
+			}
+		</style>
+		
+		<script src="js/jquery-2.1.0.js"></script>
+		<script src="js/jQueryRotate.2.2.js"></script>
+		<script src="js/jquery.color.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#welcome").mouseover(function(){
+					$("#welcome").animate({fontSize:'75px'},"fast")
+				})
+				$("#welcome").mouseout(function(){
+					$("#welcome").animate({fontSize:'70px'},"fast")
+				})
+				$("#view").hover(function(){
+					this.style.cursor = 'pointer';
+				})
+				$("#view").mouseover(function(){
+					$("#arrows").rotate({animateTo:90,duration:500})
+					$("#view").animate({backgroundColor:"rgb(127,255,212,0.8)"})
+					})
+				$("#view").mouseout(function(){
+					$("#arrows").rotate({animateTo:0,duration:500})
+					$("#view").animate({backgroundColor:"rgb(127,255,212,0)"})
+					})
+				$("#view").click(function(){
+					var index=document.getElementById("main");
+					index.scrollIntoView({ behavior:'smooth' });
+					})
+				$("#mllander").click(function(){
+					window.open('./lander.html');
+				})
+				$("#mlexo").click(function(){
+					window.open('./hipexo.html');
+				})
+				$(".mlhead").mouseover(function(){
+					$(this).parent().animate({
+						borderColor:"white"
+					})
+				})
+				$(".mlhead").mouseout(function(){
+					$(this).parent().animate({
+						borderColor:"rgb(40,40,40)"
+					})
+				})
+				//$("#arrows").mouseout(function(){$(this).rotate(90)})
+			})
+		</script>
+	</head>
+	<body onload="init()">
+			<div id="headback">
+				<div id="videocover" onclick="replay()"></div>
+			</div>		
+		<div id="container" >
+			<div id="head">
+				<video id="headvideo" muted="muted" src="img/h1.mp4" autoplay="autoplay" ></video>
+				
+				<div id="welcome" onclick="welcome_click()">Hello I'm WangZiqing</div>
+				<div id="view">View my work<div id="arrows">></div></div>
+				<!--<img src="/img/down.png" />-->
+			</div>	
+			<div id="main">
+				<div class="mlist" id="mlsfd">
+					<div class="mlhead">2020 Decoding VW-SFD Tool</div>
+				</div>
+				<div class="mlist" id="mllander">
+					<div id="mllandercover"></div>
+					<div class="mlhead">2019 Active Lander</div>
+					<img id="imglander1" src="img/图片5.gif" />
+					<img id="imglander2" src="img/图片6.gif" />
+				</div>
+				<div class="mlist" id="mlexo">
+					<div class="mlhead">2017 Hip-Exoskeleton</div>
+	
+				</div>
+				<div class="mlist" id="mlpcan">
+					<div class="mlhead">2020 PCAN-ROUTER Program</div>
+				</div>
+				<div class="mlist" id="mlupperexo">
+					<div class="mlhead">2016 Upper-Exoskeleton</div>
+				</div>
+				<div class="mlist" id="others">
+					<div class="mlhead">Others</div>
+	
+				</div>
+			</div>
+		</div>
+		<script>
+			
+			var divwelcome=document.getElementById("welcome");
+			document.body.scrollIntoView()
+			var ifreplay=true;
+			divwelcome.style.opacity=0;
+			function init()
+			{
+				divwelcome.style.opacity=0;
+				ifreplay=true;
+				setTimeout("ifreplay=false;",3000);
+				setTimeout("welcome()",5000);
+			}
+			function welcome()
+			{
+				if(divwelcome.style.opacity<0.6 && ifreplay==false)
+				{
+					divwelcome.style.opacity=parseFloat(divwelcome.style.opacity)+0.01;
+					setTimeout("welcome()",50);
+				}
+			}
+			function replay()
+			{
+				var headvideo=document.getElementById("headvideo");
+				headvideo.load();
+				init();
+			}
+//			function scrolltonav()
+//			{
+//				var index=document.getElementById("nav");
+//				index.scrollIntoView({ behavior:'smooth' });
+//			}
+			
+		</script>
+	</body>
+</html>
